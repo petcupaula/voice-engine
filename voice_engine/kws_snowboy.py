@@ -39,6 +39,8 @@ class KWS(Element):
         self.detector = snowboydetect.SnowboyDetect(common_resource.encode(), model.encode())
         # self.detector.SetAudioGain(1)
         # self.detector.ApplyFrontend(True)
+        if 'jarvis' in model:
+            self.detector.ApplyFrontend(True)
         self.detector.SetSensitivity(str(sensitivity).encode())
 
         self.queue = queue.Queue()
